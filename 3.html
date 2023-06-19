@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+   
+    }
+    .container {
+      display: flex;
+      width: 200%;
+      max-width: 800px;
+      margin: 0 auto;
+     
+      padding: 20px;
+      border: 5px solid #121010;
+      border-radius: 15px;
+      background: linear-gradient(50deg,rgb(198, 151, 151),rgb(100, 100, 165),rgb(126, 157, 126));
+    }
+    .form-container {
+      flex: 1;
+      padding-right: 20px ;
+      
+    }
+    .registration-container {
+      flex: 1;
+      padding-left: 20px;
+    }
+    .container h2 {
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #1d1919;
+      border-radius: 5px;
+    }
+    .form-group button {
+      width: 100%;
+      padding: 8px;
+      background: linear-gradient(40deg, #c166f5,bisque);
+      color: #130d0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .registration-data table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .registration-data th,
+    .registration-data td {
+      padding: 5px;
+      border: 1px solid #121010;
+      border-radius:5px ;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="form-container">
+        <h2>Registration Form</h2>
+        <div id="registrationForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" />
+          </div>
+          <div class="form-group">
+            <button onclick="submitForm()">Register</button>
+          </div>
+        </div>
+      </div>
+      <div class="registration-container">
+        <div id="registrationData" class="registration-data">
+          <h2>Registration Data</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody id="registrationTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      function submitForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+  
+        if (name && email) {
+          var tableBody = document.getElementById("registrationTableBody");
+          var newRow = tableBody.insertRow();
+          var nameCell = newRow.insertCell();
+          var emailCell = newRow.insertCell();
+          nameCell.innerHTML = name;
+          emailCell.innerHTML = email;
+  
+          // Clear the form fields
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+        }
+      }
+    </script>
+  </body>
+  </html>
